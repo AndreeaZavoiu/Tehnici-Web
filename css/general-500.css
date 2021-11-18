@@ -1,0 +1,56 @@
+html{
+    font-size:12px;
+}
+
+body{
+    --body-padding:0px;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+}
+    
+.grid-container{
+    display: grid;
+    grid-template-columns: 12fr;
+    grid-template-areas:"header"
+                        "zona1"
+                        "zona5" 
+                        "zona7"
+                        "zona6"
+                        "zona3" 
+                        "zona4"
+                        "zona2"
+                        "zona8"
+                        "footer"; 
+    padding:4%;
+    padding-top: 1%;
+    grid-gap:2rem;
+    font-size: 1rem;
+}
+
+.taburi-iframe {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.taburi-iframe a+a {
+         
+    margin-top: 5px;
+    margin-left: 0;
+}
+
+.zona1 {
+    margin-top:1rem;
+}
+
+.responsive-iframe {
+    overflow: hidden;
+    padding:0;
+    margin:0;
+    line-height: 0px;
+}

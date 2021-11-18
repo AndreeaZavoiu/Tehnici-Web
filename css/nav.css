@@ -1,0 +1,184 @@
+body{
+    --inaltime-meniu:3rem;
+}
+
+nav ul.meniu ul{
+    display: none; /* implicit submeniul e ascuns */
+	position: absolute; /* ca sa il scot din container pe alt layer, sa nu imi deplaseze continutul cand devine vizibil*/
+	width:100%;
+}
+
+nav{
+    height: var(--inaltime-meniu);
+    width: 100%;
+    top: 0;
+    padding: 0;
+    background: var(--gri);
+    z-index: 10; /* ca sa vina deasupra */
+    position: sticky; /* ca sa fie pozitionat normal in partea de sus a containerului, sub sigla, dar apoi cand dam scroll sa ramana fix pe ecran*/
+}
+
+nav ul.meniu>li{
+    float: left;
+    width: 120px;
+	position: relative; /* pentru ca submeniul pozitionat relativ sa aiba ca referinta parintele li*/
+}
+
+nav ul, nav li{
+    padding: 0;
+    margin: 0;
+}
+
+nav ul.meniu li{
+    text-align: center;
+    list-style-type: none;
+    background: var(--gri);
+    cursor: pointer;
+}
+
+nav ul.meniu li a, nav ul.meniu li div{
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-weight: bold;
+    height: var(--inaltime-meniu); /*inaltimea butonului si inaltimea liniei de text sunt identice pentru a centra textul pe verticala in element
+                                        Atentie!!! merge doar daca textul are o singura linie*/
+    line-height: var(--inaltime-meniu);
+    outline: 1px solid black;
+}
+
+ul.meniu div:hover {
+    background: var(--gri);
+    background: radial-gradient(ellipse at center, var(--gri) 45%, var(--mov-inchis) 180%);
+    animation-name: aparitie_border;
+    animation-iteration-count: 1;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    outline: 1px solid black;
+}
+
+#mjl:hover {
+    background: var(--gri);
+    background: radial-gradient(ellipse at center, var(--gri) 45%, var(--mov-inchis) 180%);
+    animation-name: aparitie_la_mij;
+    animation-iteration-count: 1;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    outline: 1px solid black;
+}
+
+@keyframes aparitie_border{
+    0%{
+        opacity:0.5;
+    } 
+	100%{
+    	opacity:1;
+    }
+}
+
+/* Ca sa nu mai dispara totul pe linie (inclusiv background-ul) la hover*/
+@keyframes aparitie_la_mij{
+    0% {}
+	100%{
+    	opacity:1;
+    }
+}
+
+ul.meniu a, ul.meniu div{
+   transition: background 700ms linear; 
+}
+
+/*deschidere submeniu*/
+nav ul.meniu>li:hover>ul{
+	display:block;
+    /* animation-name: aparitie_meniu;
+    animation-iteration-count:1;
+    animation-duration:0.8s;
+    animation-fill-mode:forwards;
+    animation-timing-function:linear; */
+    -webkit-animation: scalare_submeniu 0.2s ease-in-out;
+          animation: scalare_submeniu 0.2s ease-in-out;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+/* nav ul.meniu>li li:hover a:before{
+    content:"→  "; 
+    animation-name: aparitie_meniu;
+    animation-iteration-count:1;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    animation-timing-function:linear;
+    color:black;
+} */
+.sageata_meniu {
+    width: 0.5em;
+    height: 0.5em;
+    display: inline-block;
+    -webkit-transform: translate(-10px, 0px);
+            transform: translate(-10px, 0px);
+    -webkit-transition: -webkit-transform .3s linear;
+    transition: -webkit-transform .3s linear;
+    transition: transform .3s linear;
+    transition: transform .3s linear, -webkit-transform .3s linear;
+    margin-right: 10px;
+    color: transparent;
+  }
+  
+  ul li ul li:hover .sageata_meniu {
+    color: black;
+    -webkit-transform: translate(1px, 0px);
+            transform: translate(1px, 0px);
+  }
+
+#inlocuitor{
+    display: none;
+    height: var(--inaltime-meniu);
+}
+
+#ch-menu{
+    display: none ;
+}
+
+#inlocuitor img{
+    height:100%;
+    width:auto;
+}
+
+
+@keyframes aparitie_meniu{
+    0%{
+        opacity:0;
+    } 
+	100%{
+    	opacity:1;
+    }
+}
+
+.fa fa-home{
+    color: white;
+}
+
+
+@keyframes scalare_submeniu {
+    0% {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+    }
+  }
+  @keyframes aparitie_meniu {
+    0% {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+    }
+  }

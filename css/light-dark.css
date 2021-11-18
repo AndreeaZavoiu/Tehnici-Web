@@ -1,0 +1,46 @@
+
+/*  LIGHT-DARK THEME  */
+
+body.dark{
+    color: rgb(59, 57, 57);
+    background: none;
+    background-color: black;
+    
+    --verde-deschis: #5b9750;
+    --gri: #5b635d; 
+    --verde-inchis: #046d1e;
+    --culoare-fundal: #8b7791;
+    --mov-inchis: #6014C7;
+}
+main.dark {
+    background: var(--verde-deschis);
+}
+footer.dark {
+    background-color: var(--gri);
+}
+.grid-container > div .dark{
+    background-color: var(--verde-deschis);
+}
+nav.dark {
+    background: var(--gri);
+} 
+nav ul.meniu li .dark{
+    background: var(--gri);
+}
+.tema_dark { float: right;}
+
+
+#schimbare-tema {
+    border: 3px solid var(--gri);
+    border-radius: 1.5rem;
+    position: absolute;
+    padding: 5px;
+    right: 90px;
+    top: 70px;
+    background: center url("/resurse/imagini/sun-moon.png");
+    cursor: pointer;
+}
+#schimbare-tema span {
+    font-size: 1.4rem;
+    margin: 5px;
+}

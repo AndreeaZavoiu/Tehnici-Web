@@ -1,0 +1,78 @@
+@use "sass:list";
+
+@keyframes gal2{
+    0%{
+        top:0px;
+        left:0;
+      }
+
+
+    }
+
+    /* NAV MIC */
+
+#inlocuitor {
+  display: block;
+}
+
+#acasa b {
+  display: none;
+}
+
+/* implicit meniul e ascuns*/
+
+ul.meniu {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+/*aici facem vizibil meniul cand faem click pe hamburger meniu*/
+
+#ch-menu:checked + ul.meniu {
+  display: block;
+}
+
+/*optiunile se intind pe toata latimea containerului*/
+
+nav ul.meniu {
+  li {
+    width: 100%;
+
+    ul > li:hover {
+      background: var(--gri);
+      background: radial-gradient(ellipse at center, var(--gri) 45%, var(--mov-inchis) 180%);
+      animation-name: aparitie;
+      animation-iteration-count: 1;
+      animation-duration: 0.8s;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      outline: 1px solid black;
+    }
+  }
+
+  > li {
+    ul {
+      position: absolute;
+      width: 100%;
+      z-index: 20;
+    }
+
+    li:hover a:before {
+      display: none;
+    }
+  }
+}
+
+/*meniul sa vina deasupra continutul de mai jos, fara sa impinga continutul*/
+
+#mij:hover {
+  background: var(--gri);
+  background: radial-gradient(ellipse at center, var(--gri) 45%, var(--mov-inchis) 180%);
+  animation-name: aparitie;
+  animation-iteration-count: 1;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  outline: 1px solid black;
+}

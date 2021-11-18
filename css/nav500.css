@@ -1,0 +1,60 @@
+/* NAV MIC */
+/*facem vizibil iconul de hamburger meniu*/
+#inlocuitor{
+    display:block;
+}
+
+#acasa b {
+    display: none;
+}
+
+/* implicit meniul e ascuns*/
+ul.meniu{
+    display:none;
+    position:absolute;
+    width:100%;
+
+}
+
+/*aici facem vizibil meniul cand faem click pe hamburger meniu*/
+#ch-menu:checked+ul.meniu{
+    display: block;
+    animation: apare 0.3s ;
+    transform-origin: 0 0;
+}
+@keyframes apare {
+    0% {
+        
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*optiunile se intind pe toata latimea containerului*/
+nav ul.meniu li{
+    width:100%;
+}
+
+/*meniul sa vina deasupra continutul de mai jos, fara sa impinga continutul*/
+nav ul.meniu>li ul{
+    position:absolute;
+    width:100%;
+    z-index:20;
+}
+
+nav ul.meniu>li li:hover a:before{
+    display: none;
+}
+
+nav ul.meniu li ul>li:hover, #mij:hover {
+    background:var(--gri);
+    background: radial-gradient(ellipse at center, var(--gri) 45%, var(--mov-inchis) 180%);
+    animation-name: aparitie;
+    animation-iteration-count:1;
+    animation-duration:0.8s;
+    animation-fill-mode:forwards;
+    animation-timing-function:linear;
+    outline:1px solid black;
+}

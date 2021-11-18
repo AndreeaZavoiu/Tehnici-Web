@@ -1,0 +1,90 @@
+/* STIL PRINTARE */
+
+@media print {
+    html, body, main {
+        overflow: visible;
+        background-image: none;
+        background-color: transparent;
+        border-left: none;
+        border-right: none;
+        z-index: 0;
+    }
+    .taburi-iframe, .responsive-iframe, #galerie-statica, #sectiune-galerie-animata, #link-top, picture, #vedeti-si, .zona2, .zona8,  #intrebari {
+        display: none;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    header {
+        padding-top: 45px;
+        text-align: center;
+    }
+    #banner {
+        visibility: visible;
+        position: absolute;
+        border: black;
+        border-width: 8px ;
+        border-style: double;
+        width: 50%;
+        top: 0;
+        right: 0;
+    }
+    .watermark {
+        display: block;
+        position: fixed;
+        text-align: center;
+        width: 60%;
+        height: 10%;
+        opacity: 0.3;
+        background: white;
+        z-index: 100000;
+    }
+    
+
+    /* Resetare meniu */
+    nav {
+        page-break-after: always;
+        position: relative;
+    }
+    nav ul.meniu>li{
+        float: none;
+        width: 50%;
+        list-style-type: circle;
+    }
+    nav ul.meniu li{
+        list-style-type: circle;
+        display: list-item;
+        float: none;
+        padding-left: 20px ; /* cand e aplicat, se observa submeniul pt fiecare linie care il are */
+    }
+    nav ul.meniu ul{
+        display: block;
+        position: relative;
+    }
+    nav ul.meniu li a, nav ul.meniu li div {
+        outline: none;
+    }
+    footer {
+        page-break-before: always;
+    }
+
+    @page {
+		size: A4 portrait;
+		margin-bottom:2cm;
+		margin-top:2cm;
+		counter-increment: page;
+        page-break-before: always;
+	}
+	@page:left{
+
+		margin-left:2cm;
+		margin-right:1cm;
+		border-radius: 20cm;
+	}
+	@page:right{
+
+		margin-right:2cm;
+		margin-left:1cm;
+	}
+}

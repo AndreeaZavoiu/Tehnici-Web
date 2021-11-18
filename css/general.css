@@ -1,0 +1,385 @@
+@import "nav.css";
+@import "tabel.css";
+@import "galerie-statica.css";
+
+/* GENERAL */
+
+html{
+    font-size:16px;
+}
+
+body {
+    --verde-deschis: #C3FAB9;
+    --gri: #599468; 
+    --verde-inchis: #14C742;
+    --culoare-fundal: #ddcce2;
+    --mov-inchis: #6014C7;
+    --body-padding:3rem;
+    --padding-intern:2%;
+    --main-border: 1px solid grey;
+
+    margin-top:0;
+    margin-bottom:0;
+    padding-top: 0;
+    padding-bottom:0;
+    padding-left:var(--body-padding);
+    padding-right:var(--body-padding);
+    background-image: url("../imagini/fundal.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;    
+    min-width:330px;
+}
+body{counter-reset: c1}
+/* p{counter-increment: c1 1;counter-increment: c1 2;} body::after{content: counter(c1);}  af 4*/
+/* p{counter-increment: c1;} body::after{content: counter(c1)*3;}  nu af nimic */
+/*p{counter-increment: c1 3;} body::after{content: counter(c1);} af 6
+ p{counter-increment: c1 3;} body::after{content: counter(c1);} af 6*/
+
+h1{
+    font-size: 4rem;
+    text-shadow: 0px 0px 1px black, 0px 0px 2px black, 2px 2px 5px white, 2px 2px 5px white, 2px 2px 5px white;
+    /* 0px 0px 1px black,0px 0px 2px black, 0px 4px 7px white,0px 0px 7px white,0px 0px 7px white; */
+}
+
+main {
+    background: var(--verde-deschis) /*rgba(255,255,255,0.6)*/ ;
+    border-left:var(--main-border);
+    border-right:var(--main-border);
+}
+
+#intrebari {
+    width: 100%;
+    height: 100%;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+}
+
+#intrebari summary {
+    font-family:'Kiwi Maru', sans-serif;
+    list-style-type: none;
+}
+
+#intrebari summary::before {
+    display: inline-block;
+    background-image: url("../imagini/icon-question-mark.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 2rem;
+    width: 2rem;
+    content: " ";
+    margin-right: 0.5rem;
+}
+
+#intrebari p {
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+}
+
+#produse{
+    /*float: left;*/
+    text-align: left;
+}
+
+#prezentare {
+    font-family: 'Raleway', sans-serif;
+}
+
+article > ul{
+    text-align: center;
+    list-style: none;
+}
+
+#mesaj {
+    text-align: center;
+    padding-left: 5px;   
+}
+
+blockquote {
+    font-family: 'Dancing Script', cursive;
+}
+
+#obs {
+    padding-top: 0.5rem;
+}
+
+#obs dd {
+    text-align: left;
+}
+
+#obs dl dt:before {               
+    content: '• ';
+    font-size: 1.8rem;
+}
+
+.titluri {
+    padding-top: 20px;
+}
+
+address>a, article>a {
+    text-decoration: none;
+    color: var(--mov-inchis);
+}
+
+.zona8 a {         
+    text-align: left;
+    color: var(--mov-inchis);
+    font-family:'Kiwi Maru', sans-serif;
+}
+
+#produse a {
+    text-decoration: none;
+}
+
+.zona8 li {
+    list-style-type: circle;
+}
+
+.watermark {
+    display: none;
+}
+
+footer {
+    background-color: var(--gri);
+    color:white;
+    text-align: center
+    ;
+    padding-left:var(--padding-intern);
+    padding-right:var(--padding-intern);
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+}
+
+
+
+/*  STILIZARE GRID  */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
+    grid-template-areas:
+                        "zona1 zona1 zona1 zona1"
+                        "zona5 zona6 zona6 zona7"
+                        "zona3 zona3 zona2 zona2"
+                        "zona4 zona4 zona2 zona2"
+                        "zona8 zona8 zona8 zona8"
+                        ; 
+    padding: var(--padding-intern);
+    grid-gap: 2rem;
+}
+
+.grid-container article {
+    border: 10px var(--verde-inchis);
+    padding: 1px;
+}
+
+.grid-container > div{
+    background-color: var(--verde-deschis);
+    border: 1px solid black;
+    text-align: center;
+    font-size: 18px;
+}
+
+.zona1 {
+    grid-area: zona1;
+    border-radius: 8%;
+}
+.zona2 {
+    grid-area: zona2;
+}
+.zona3 {
+    grid-area: zona3;
+}
+.zona4 {
+    grid-area: zona4;
+}
+.zona5 {
+    grid-area: zona5;
+}
+.zona6 {
+    grid-area: zona6;
+}
+.zona7 {
+    grid-area: zona7;
+}
+.zona8 {
+    grid-area: zona8;
+    padding-bottom: 1rem;
+}
+
+
+/*  STILIZARE IFRAME  */
+
+.taburi-iframe {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items:stretch;
+}
+
+.taburi-iframe a{
+    text-decoration: none;
+    color: black;
+   width: 180px;
+    border:1px solid var(--verde-deschis);
+    box-shadow:0px 0px 7px 2px var(--gri);
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: var(--verde-deschis);
+    transition:all 0.5s linear;
+    text-align: center;
+}
+
+.taburi-iframe a:hover {
+    transition: all 0.5s linear;
+    background: var(--gri);
+    color: black;
+}
+
+@media screen and (max-width:600px){
+    .taburi-iframe a+a {
+        margin-top: 5px;
+        margin-left: 0;
+    }
+}
+
+
+/*  STILIZARE IMAGINI  */
+
+.imagine {
+    width:45%;
+    mask-image: linear-gradient( transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(transparent, black 10%, black 90%, transparent);
+    background-attachment: fixed;
+     float:right;
+}
+
+.imagine img{
+    width: 75%;
+}
+
+#logo img{
+    width: 30%;
+    float: left;
+    padding: 2rem;
+}
+
+
+/*  STILIZARE HR  */
+
+.zig-zag { 
+    border: none; 
+    width: 100%; 
+    margin: auto; 
+    margin-bottom: 3%; 
+    height: 40px; 
+    background: linear-gradient(135deg, var(--verde-deschis) 25%, transparent 25%) -20px 0, 
+            linear-gradient(225deg, var(--verde-deschis) 25%, transparent 25%) -20px 0, 
+            linear-gradient(315deg, var(--verde-deschis) 25%, transparent 25%), 
+            linear-gradient(45deg, var(--verde-deschis) 25%, transparent 25%); 
+    background-size: 40px 40px; 
+    background-color: var(--gri);
+}
+
+
+/*  STILIZARE LINK TOP  */
+
+#link-top{
+    position: fixed;
+    display:block;
+    opacity:0.5;
+    bottom:0;
+    right:0;
+    width:50px;
+    height:50px;
+    background-color: var(--verde-deschis);
+    border-radius: 1rem;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border:1px solid var(--mov-inchis);
+    box-shadow:0px 0px 7px 2px inset var(--verde-inchis);
+    overflow:visible;
+    text-decoration: none;
+
+}
+#link-top:hover{
+    opacity:1;
+}
+
+.arrow{
+    display: block;
+    font-size: 270%;
+    text-align: center;
+    position: relative;
+    color: var(--gri);
+}
+
+.arrow:hover {
+    color: black;
+    font-size: 320%;
+    transition: font-size 0.5s linear;
+    border-radius: 1rem;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    background: radial-gradient(ellipse at center, var(--gri) 40%, var(--mov-inchis) 180%);
+}
+
+
+/*  STILIZARE BANNER  */
+    
+#banner{
+    background: var(--mov-inchis);
+    border: 0.4rem solid var(--mov-inchis);
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    position:fixed;
+    right:0;
+    bottom: 0;
+    visibility: hidden;
+    animation-name: vine-stanga;
+    animation-duration: 6s;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+}
+
+@media screen and (min-width: 1200px) {
+    @keyframes vine-stanga{
+        0% {
+            background-color: var(--verde-inchis); /* schimba culoarea de fundal din c1 = verde-inchis in c2 = verde-deschis*/ 
+            left:-100%;
+            visibility: visible;
+        }
+        25% {
+            background-color: var(--verde-deschis);  /* si-a schimbat backgroundul in c2 */
+            border-color: var(--mov-inchis); /* borderul are culoarea c3 = mov-inchis*/
+            left:20px; 
+            transition: background-color 2.5s linear;
+            transition: border-color 2.5s linear;
+        }
+        50% {
+            background-color: var(--mov-inchis); /* la jum. traseului, fundalul se schimba in c3 */ 
+            border-color: var(--verde-deschis); /* si borderul in c2 */
+            left:0px; 
+            transition: background-color 2.5s linear;
+            transition: border-color 2.5s linear;
+        }
+        100% {
+            background-color: var(--verde-deschis);  /* backgroundul iar in c2 */
+            border-color: var(--mov-inchis); /* borderul inapoi in c3 */
+            bottom:0px;
+            left: 100%;
+            transition: background-color 2.5s linear;
+            transition: border-color 2.5s linear;
+            visibility: hidden;
+        }
+    }
+}

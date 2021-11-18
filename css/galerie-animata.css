@@ -1,0 +1,143 @@
+#sectiune-galerie-animata {
+  padding-left: var(--padding-intern);
+  /* variabila din css-ul general*/
+  padding-right: var(--padding-intern);
+}
+
+.galerie-a {
+  /* divul */
+  width: 500px;
+  height: 500px;
+  position:relative;
+  overflow: hidden;
+}
+
+.galerie-a figcaption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  text-align: center;
+}
+
+.galerie-a figure {
+  position: relative;
+  width: 100%;
+}
+.galerie-a figure img {
+  position: relative;
+  width: 100%;
+}
+
+/*cum calculez timpii:
+- am 6 poze; vrem pentru fiecare un timp de afisare de 1.5 secunde si o trecere spre urmatoarea poza de 1.5 secunde
+- rezulta 3 secunde pentru fiecare imagine
+- 6imagini * 3secunde =18 secunde in total pentru animatie (animation-duration) si fiecare poza cu un delay = 3* numarul de ordine
+- momentul in care trebuie ascunsa poza si pusa in spatele celorlalte (ca sa isi astepte randul pentru noua animatie:
+il calculam cu formula  timp_afisare(normal+trecerea la urmatoarea poza)/timp_total*100 = 3/18*100 =  16.6666666667(aproximativ)
+100%..... 18s
+x%........3s
+
+- calculam 100 - 16.6666666667 = 83.333333333 - la acest moment imaginea trebuie sa se vada in spatele imaginii care se afiseaza in mod curent (ca sa se vada si cat timp se realizeaza efectul de schimbare a imaginii
+*/
+#galerie-animata figure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  animation-name: gal_exemplu;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-duration: 18s;
+  transform-origin: center center;
+}
+
+#galerie-animata:hover figure {
+  animation-play-state: paused;
+}
+
+#galerie-animata figure:nth-of-type(0) {
+  /* cea mai de deasupra*/
+  animation-delay: 18s;
+}
+
+#galerie-animata figure:nth-of-type(1) {
+  /* cea mai de deasupra*/
+  animation-delay: 15s;
+}
+
+#galerie-animata figure:nth-of-type(2) {
+  /* cea mai de deasupra*/
+  animation-delay: 12s;
+}
+
+#galerie-animata figure:nth-of-type(3) {
+  /* cea mai de deasupra*/
+  animation-delay: 9s;
+}
+
+#galerie-animata figure:nth-of-type(4) {
+  /* cea mai de deasupra*/
+  animation-delay: 6s;
+}
+
+#galerie-animata figure:nth-of-type(5) {
+  /* cea mai de deasupra*/
+  animation-delay: 3s;
+}
+
+#galerie-animata figure:nth-of-type(6) {
+  /* cea mai de deasupra*/
+  animation-delay: 0s;
+}
+
+@keyframes gal_exemplu {
+  0% {
+    z-index: 10;
+    opacity: 1;
+  }
+  /*perioada 0-5% in care se afiseaza fara efect */
+  /*trnaformare i imag completa, f e disparuta */
+  8.3333333333% {
+    clip-path: polygon(100% 0, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 100% 0, 100% 0);
+    /* imag completa */
+  }
+  15.6666666667% {
+    opacity: 1;
+  }
+  /* de  aici doresc sa descresc si opacitatea;*/
+  16.6666666667% {
+    z-index: 10;
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 0);
+    /*imag disparuta*/
+  }
+  16.6667666667% {
+    z-index: -10;
+    clip-path: polygon(100% 0, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 100% 0, 100% 0);
+    /* imag completa */
+  }
+  /* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
+  83.3333333333% {
+    z-index: -10;
+    opacity: 0;
+    clip-path: polygon(100% 0, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 100% 0, 100% 0);
+    /* imag completa */
+  }
+  83.3334333333% {
+    z-index: 0;
+  }
+  /*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
+  100% {
+    opacity: 1;
+    z-index: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  #sectiune-galerie-animata {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=galerie-animata.css.map */
