@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta name="keywords" content="activist, poluarea aerului, reciclare, recycle, schimbări climatice, dispariție, eco, carbon, combustibili, efect de seră, plastic, reutilizabil">
+    <meta name="description" content="Activism pentru mediu">
+    <title>Fridays For Future Ploiesti</title>
+    
+    <%- include("../fragmente/head") %>
+    </head>
+
+<body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <section>
+            <h2>Pagină produs</h2>
+            <article id="art-produs">
+                <h3><span class="nume"> <%- locals.prod.nume %></span></h3>
+                <p> Descriere: <span class="descriere"> <%- locals.prod.descriere %></span></p>
+                <p> Preț: <span class="pret"> <%- locals.prod.pret %></span></p>
+                <!-- o a doua caracteristica numerica: -->
+                <p> Bucăți: <span class="bucati"> <%- locals.prod.bucati %></span></p>
+                <!-- caracteristica cu valoare de tip Date (data calendaristica) -->
+                <p> Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                <!-- caracteristica care poate sa aiba o singura valoare pentru o entitate-->
+                <p> Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
+                <!-- caracteristica care poate sa aiba mai multe valori pentru o entitate-->
+                <p> Material: <span class="material"><%- locals.prod.material %> </span></p>
+                <!-- caracteristica booleana: -->
+                <p> Voucher: <span class="voucher"><%- locals.prod.voucher %> </span></p>
+                <figure class="imag-produs">
+                    <img src="/resurse/imagini/produse/<%- locals.prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- locals.prod.imagine %>]" />
+                </figure>
+    
+            </article>
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+</body>
+</html>

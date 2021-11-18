@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta name="keywords" content="activist, poluarea aerului, reciclare, recycle, schimbări climatice, dispariție, eco, carbon, combustibili, efect de seră, plastic, reutilizabil">
+    <meta name="description" content="Activism pentru mediu">
+
+    <title>Fridays For Future Ploiesti</title>
+    
+    <%- include("../fragmente/head") %> <!--Minusul de dupa procent e pt afisare-->
+    <link rel="stylesheet" href="/resurse/css/galerie-animata.css" type="text/css" />
+    <link rel="stylesheet" href="/resurse/css/galerie-statica.css" type="text/css" />
+    <link rel="stylesheet" href="/resurse/css/video.css" type="text/css" />
+    <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+
+    <script>
+        fetch('http://localhost:8080/galerie-animata.css', {
+            method: 'get'
+        }).then(function(response){
+            console.log(response)
+        })
+    </script>
+
+    <!-- LIGHT-DARK THEME -->
+    <!-- <button class="tema_dark" onclick="f()">Buton light/dark</button>
+    <script>
+        function f(){ document.body.className= (document.body.className=="light") ? "dark" : "light"; }
+    </script> -->
+
+</head>
+
+<body class="light">
+    <%- include("../fragmente/header") %>
+
+    <main>
+
+        <div class ="grid-container">
+            <div class = "zona1">
+                <article id = "prezentare">
+                    <h2>Mișcare la nivel internațional</h2>
+                    <div><i class="fa fa-spinner fa-spin"></i>
+                        Reprezentată de tineri activiști, mișcarea are ca scop atragerea atenției asupra schimbărilor climatice și combaterea lor. 
+                        Înființată în 2018 de o tânără elevă din Suedia, aceasta a prins rapid amploare pe tot globul și a produs deja schimbări în bine. Motto: We strike until you act!
+                        
+                        <br>
+                        <picture id = "logo">
+                            <!-- il ia pe primul care se potriveste cu query-ul din media
+                            <source srcset="grup_parc_mv.jpg" media="(max-width:700px)"/>
+                            <source srcset="grup_parc_mv.jpg" media="(max-width:1200px)"/>-->
+                            <img src="../resurse/imagini/FFFlogoFundalVerde.png" alt="text"/>
+                        </picture>
+                        
+                        <aside id="obs"><br><strong>Observație!</strong> --> Eco-Alfabetul:
+                            <dl>
+                                <dt>Amprentă de carbon</dt><dd>= emisiile totale de gaze cu efect de seră</dd>
+                                <dt>Combustibili fosili</dt><dd>= hidrocarburi, cărbune, petrol sau gaze naturale, formate din rămășițele fosilizate ale plantelor și animalelor moarte</dd>
+                                <dt>Efect de seră</dt><dd>= proces survenit absorbției căldurii Soarelui de către atmosfera Pământului</dd>
+                            </dl>
+                        </aside>
+                    </div>
+        
+                    <h2 class="titluri">Activitatea noastră</h2>
+                    <p>
+                        La nivel local, ne putem mândri cu activități de curățare a parcurilor, cu reciclarea în masă a PET-urilor și creșterea conștientizării problemelor de
+                        mediu printre tineri.
+                    </p>
+                    
+                    
+                    <picture class = "imagine">
+                        <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                        <source srcset="../resurse/imagini/grup_parc_mv.jpg" media="(max-width:700px)"/>
+                        <source srcset="../resurse/imagini/grup_parc_mv.jpg" media="(max-width:1200px)"/>
+                        <img src="../resurse/imagini/grup_parc_mv.jpg" alt="text"/>
+                    </picture>
+
+                    <br>
+                    <div id="mesaj">Unul dintre mesajele scrise de către unul dintre consilierii locali ai orașului Ploiești, impresionat de primul nostru proiect din acest an:
+                        <blockquote>&quot; Încurajez toți tinerii să militeze pentru protecția mediului, nu doar pentru că e lucrul corect de făcut, ci și pentru că ei vor plăti 
+                            <i>factura</i>  pentru un potențial dezastru ecologic.&quot;</blockquote></div>
+                    <article id="casa-robin">
+                        <h3 class="titluri">Colaborarea cu Casa lui Robin</h3>
+                        <p> Prima noastră activitate din anul 2021 a fost realizată în colaborare cu creatoarea de conținut, Andreea Coff, care a venit la Ploiești pentru a le
+                            vorbi tinerilor despre cum să ai un trai sustenabil în propria locuință. Aceasta postează pe TikTok videoclipuri sugestive, sub numele de "Casa lui Robin",
+                        dând cu adevărat exemplu de activism pentru mediu.</p>   
+                        Mai multe detalii puteti accesa <a href="#">aici</a>. 
+                    </article>
+                </article><br>
+
+                <!-- VIDEO CU TRACK-URI SI TAGUL POSTER-->
+                <div id="container-video">
+                   <img class="videoclip" src="resurse/imagini/universe.jpg" alt="videoclip">
+                    <div id="centrare-video">
+                        <div id="clip-video">
+                            <div id="stil-video">   <!--width="320" height="240"-->
+                                <video class="videoclip" controls style="width:320;height:auto" poster="resurse/imagini/universe.jpg" playsinline autoplay loop muted>
+                                    <source src="/resurse/video/videoFFF.mp4" type="video/mp4">
+                                    <source src="/resurse/video/videoFFF.ogv" type="video/ogv">
+                                    <track  default src="/resurse/video/captions.vtt" kind="captions" srclang="ro" label="romana">
+                                    <track  src="/resurse/video/captions-en.vtt" kind="captions" srclang="en" label="engleza">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class = "zona2" >
+                <h2>Activitatea noastră</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nume</th>
+                            <th>Dată</th>
+                            <th>Locație</th>
+                            <th>Participanți</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>Fridays We Clean Campaign</td>
+                            <td>25-09-2020</td>
+                            <td>Parcul "Mihai Viteazul"</td>
+                            <td>50</td>
+                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Webinar "Schimbări climatice"</td>
+                            <td>06-11-2020</td>
+                            <td>Online</td>
+                            <td>45</td>
+                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Less Plastic December</td>
+                            <td>19-12-2020</td>
+                            <td>Online</td>
+                            <td>30</td>
+                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Recycle Express</td>
+                            <td>28-02-2021</td>
+                            <td>Parcul Municipal</td>
+                            <td>70</td>
+                            
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+            <div class = "zona3">
+                <h3>Calendar evenimente</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class = "zona4">
+                <h3>Anunturi</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class = "zona5">
+                <h3>Lista utilizatorilor online</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class = "zona6">
+                <h3>Date despre utilizator și statistici</h3>
+                <%- locals.ip %>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+            </div>
+            <div class = "zona7">
+                <h3>Date despre site și server</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class = "zona8">
+                <h3>Produsele noastre</h3>
+                <section id="produse"> 
+                    <details ><summary>Produse eco-friendly</summary>
+                    <ul>
+                        <li><a href="#">Autocolant cu logo-ul FFF</a></li>
+                        <li><a href="#">Tricou din bumbac ecologic</a></li>
+                        <li><a href="#">Sacoșă reutilizabilă</a></li>
+                        <li><a href="#">Săculeți de pânză</a></li>
+                        <li><a href="#">Cană de cafea reutilizabilă</a></li>
+                        <li><a href="#">Periuță de dinți din lemn</a></li>
+                        <li><a href="#">Pai din metal</a></li>
+                    </ul>
+                    </details>
+                </section> 
+            </div>
+        </div> <!--Aici se incheie gridul-->
+
+
+        <!-- Galerie statica -->
+        <section id="galerie-statica">
+            <h2>Galerie</h2>
+            <div id="grid-galerie">
+                <% for (let imag of locals.imagini1){  %>
+                <figure>
+                    <picture>
+                        <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                        <source srcset="/<%-imag.mic%>" media="(max-width:700px)"/>
+                        <img src="/<%-imag.mare%>" alt="text"/>
+                    </picture>
+                    <figcaption><%-imag.titlu%></figcaption>
+                </figure>
+                <% } %>
+            </div>
+        </section>
+
+        <br><hr class = "zig-zag">
+            <h3>Vedeți și:</h3><br><br>
+
+        <!-- TABURI IFRAME-->
+        <div class="taburi-iframe">
+            <a href="https://fridaysforfuture.at/gruppen/wien" target="_blank">FFF Viena</a><br>
+            <a target="ifr-video" href="https://www.youtube.com/embed/uD3vqDJVxbY"> FFF Stockholm </a><br>
+            <a target="ifr-video" href="https://www.youtube.com/embed/43nxknUKiIg"> What is FFF sabout? </a> 
+        </div>
+        <iframe class="responsive-iframe" name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/43nxknUKiIg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br><br>
+        
+
+        <!-- GALERIA ANIMATA -->
+        <section id="sectiune-galerie-animata">
+            <h2>Galerie</h2>
+            <div id="galerie-animata" class="galerie-a">
+                <% for (let imag of locals.imagini2){ %> 
+                    <figure>
+                        <picture>
+                            <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                            <source srcset="/<%-imag.mic%>" media="(max-width:700px)"/>
+                            <img src="/<%-imag.mare%>" alt="text"/>
+                        </picture>
+                        <figcaption><%-imag.titlu%></figcaption>
+                    </figure>
+                <% } %>
+            </div>
+        </section>
+        
+
+        <section id="intrebari">
+            <h3>Intrebări frecvente:</h2>
+            <details><summary>Cum a început această mișcare?</summary>
+            <p> Greta Thunberg and other young activists sat in front of the Swedish parliament every schoolday for three weeks, to protest against the lack of action on the climate crisis. 
+                She posted what she was doing on Instagram and Twitter and it soon went viral.</p>
+            </details>
+            <details><summary>Cine poate fi activist?</summary>
+            <p> Orice tânăr interesat de protejarea mediului înconjurător.</p>
+            </details>
+        </section>   
+
+        <!-- <p>Click the button to display the time.</p>
+        <button onclick="getElementById('demo').innerHTML=Date()">What is the time?</button>
+        <p id="demo"></p> -->
+        
+
+
+    </main>
+
+    <%- include("../fragmente/footer") %>
+</body>
+</html>
+

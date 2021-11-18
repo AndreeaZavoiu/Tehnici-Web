@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta name="keywords" content="activist, poluarea aerului, reciclare, recycle, schimbări climatice, dispariție, eco, carbon, combustibili, efect de seră, plastic, reutilizabil">
+    <meta name="description" content="Activism pentru mediu">
+    <title>Fridays For Future Ploiesti</title>
+    <%- include("../fragmente/head") %>
+	<script type="text/javascript" src=/resurse/js/produse.js></script>
+	<link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+
+	<!-- LIGHT-DARK THEME -->
+    <!-- <button class="tema_dark" onclick="f()">Buton light/dark</button>
+    <script>
+        function f(){ document.body.className= (document.body.className=="light") ? "dark" : "light"; }
+    </script> -->
+	
+    </head>
+
+<body>
+    <%- include("../fragmente/header") %>
+
+<main> <br>
+	<div> <label> Produs:
+		<input id="i_text" type="text" value="..."> </label>
+	Preț maxim: 
+		<label for="i_range">	
+			<input id="inp-pret" type="range" min="10" max="80" step="2" value="80">
+		</label>
+	</div>
+
+	<p>Selectati categoria de produse:
+		<label> Comun
+			<input id="i_check1" name="gr_chck" checked value="comun" type="checkbox"/>
+		</label>
+		<label> Personalizat
+			<input id="i_check2" name="gr_chck" checked value="personalizat" type="checkbox"/>
+		</label>
+		<label> Ediție limitată
+			<input id="i_check3" name="gr_chck" checked value="editie limitata" type="checkbox"/>
+		</label>	
+
+	<br>Selectati tipul materialului:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+		<label>Reciclabil
+			<input id="i_rad1"  name="gr_rad" value="reciclabil" type="radio"/>
+		</label>
+		<label>Nereciclabil
+			<input id="i_rad2" name="gr_rad" value="nereciclabil" type="radio"/>
+		</label>
+        <label>Toate
+			<input id="i_rad3" checked name="gr_rad" value="toate" type="radio"/>
+		</label>
+	</p>
+
+	<div><label> Culoare:
+		<select id="i_sel_simplu">
+			<option value="toate" selected>Toate</option>
+			<option value="alb">Alb</option>
+			<option value="negru" >Negru</option>
+			<option value="metalic">Metalic</option>
+			<option value="verde">Verde</option>
+		</select>
+	</label>
+	
+    <label> Pret:
+		<select id="i_sel_multiplu" multiple size="5">
+			<option value="10-20" selected>10-20</option>
+			<option value="21-30" selected>21-30</option>
+			<option value="31-50" selected>31-50</option>
+			<option value="51-70" selected>51-70</option>
+			<option value="71-100" selected>71-100</option>
+		</select>
+	</label>
+	
+	<label>Preferințe materiale:
+		<textarea id="i_textarea">...</textarea>
+	</label></div>
+
+	<p>
+		<button id="filtrare">Filtrează</button>
+		<button id="resetare">Reseteaza</button>
+		<p>Sorteaza dupa pret si apoi dupa tipul materialului:</p>
+		<button id="sortCrescNume">Crescator </button>
+        <button id="sortDescrescNume">Descrescator </button>
+		<button id="calculare">Prețul total al produselor selectate</button>
+	</p>
+	<!-- <p id="p-suma">Apasați Alt+"c" pentru suma preturilor produselor afișate. </p>
+	 -->
+	<section id="produse">
+		<h2>Produse</h2>
+			<div class="grid-produse">
+				<% for (let prod of locals.produse){ %> 
+					<article class="produs">
+						<div class="titlu">
+							<h3 class="nume"> Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"> <%- prod.nume %></span></a></h3>
+							<div id="subtitlu">
+								<p class="proprietate"> Tip produs: <span class="val-proprietate"> <%- prod.proprietate %></span></p>
+								<p class="categorie"> Categorie: <span class="val-categorie"> <%- prod.categorie %></span></p>
+							</div>
+						</div>
+							
+						<div class="descriereSiImagine">
+							<p class="descriere"> Descriere: <span class="val-descriere"> <%- prod.descriere %></span></p>
+							<figure class="imagineProd">
+								<img src="/resurse/imagini/produse/<%- prod.imagine %>"  alt="[imagine <%- prod.imagine %>]" />
+							</figure>
+						</div>
+
+						<div class="info-prod"><ul>
+							<li class="pret"> Preț: <span class="val-pret" style="color:var(--verde-inchis)"> <%- prod.pret %></span></li>
+							<!-- <li class="lungime"> Lungime (cm): <span class="val-lungime"> <%- prod.lungime %></span></li> -->
+							<li class="culoare"> Culoare: <span class="val-culoare"> <%- prod.culoare %></span></li>
+							<li class="material"> Materiale: <span class="val-material"> <%- prod.material %></span></li>
+							<% 
+								let sirData = "";
+								let luni = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+								let zileSapt = ["Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"];
+								sirData = zileSapt[ prod.data_adaugare.getDay() ] + ', ' + prod.data_adaugare.getDate() + '-' + luni[prod.data_adaugare.getMonth()] + '-' + prod.data_adaugare.getFullYear();
+							
+								%>
+							<li class="data"> Data adăugării: <span class="val-data"><time datetime="<%- prod.data_adaugare %>"> <%- sirData %></time></span></li>
+						</ul></div>
+						
+
+						<label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                    
+
+					</article>
+				<% } %>
+			</div>
+	</section>
+</main>
+
+    <%- include("../fragmente/footer") %>
+</body>
+</html>

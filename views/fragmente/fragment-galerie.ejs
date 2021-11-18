@@ -1,0 +1,10 @@
+<% for (let imag of locals.imagini2){ %> 
+    <figure>
+        <picture>
+            <!-- il ia pe primul care se potriveste cu query-ul din media-->
+            <source srcset="/<%-imag.mic%>" media="(max-width:700px)"/>
+            <img src="/<%-imag.mare%>" alt="text"/>
+        </picture>
+        <figcaption><%-imag.titlu%></figcaption>
+    </figure>
+<% } %>
