@@ -1,2 +1,2 @@
 # Tehnici-Web
-Anul 1, semestrul II
+Proiect din anul 1, semestrul II
