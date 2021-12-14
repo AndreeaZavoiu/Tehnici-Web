@@ -1,2 +1,2 @@
 # Tehnici-Web
-Proiect din anul 1, semestrul 2
+Proiect - FMI, Unibuc, Anul 1, Semestrul 2
